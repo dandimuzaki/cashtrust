@@ -1,0 +1,111 @@
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import logo from './../assets/logo.png'
+import { Visibility } from '@mui/icons-material';
+import { useAuth } from '../hooks/AuthContext';
+
+const RegisterPage = () => {
+  const [seePassword, setSeePassword] = useState(false)
+  const [seeRepeat, setSeeRepeat] = useState(false)
+  const { handleRegister } = useAuth()
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    reset,
+    formState: {errors}
+  } = useForm({
+    defaultValues: {
+      'name': '',
+      'email': '',
+      'password': '',
+      'repeatPassword': ''
+    }
+  })
+
+  useEffect(() => {
+    reset({
+      name: '',
+      email: '',
+      password: '',
+      repeatPassword: ''
+    })
+  }, [reset, setValue])
+
+  const watchPassword = watch('password')
+
+  return (
+    <div className='min-h-screen bg-[var(--primary)] flex justify-center'>
+      <div className='p-12 grid gap-6 max-w-xl'>
+      <div className='flex justify-center'>
+        <img src={logo} className='object-cover h-8 w-80' />
+      </div>
+      <div className='text-white text-center grid gap-1'>
+      <h1 className='font-bold text-2xl'>Create Your Account</h1>
+      <p>Join us and start managing your transactions easily.</p>
+      </div>
+      <form className='grid gap-6' onSubmit={handleSubmit(handleRegister)}>
+      <div
+      className='bg-white p-8 rounded-lg grid gap-4'
+      >
+          <div className='grid gap-2'>
+            <Label htmlFor='name'>Name</Label>
+            <Input {...register('name')} id='name' name='name'/>
+            {errors.name && (
+              <p className='text-red-500 text-xs'>{errors.name.message}</p>
+            )}
+          </div>
+
+          <div className='grid gap-2'>
+            <Label htmlFor='email'>Email</Label>
+            <Input type='email' {...register('email')} id='email' name='email'/>
+            {errors.email && (
+              <p className='text-red-500 text-xs'>{errors.email.message}</p>
+            )}
+          </div>
+
+          <div className='grid gap-2 relative'>
+            <Label htmlFor='password'>Password</Label>
+            <Input {...register('password', {
+      required: 'Password is required',
+      minLength: {
+        value: 6,
+        message: 'Password must be at least 6 characters long'
+      }})} type={seePassword ? 'text' : 'password'} id='password' name='password'/>
+            {errors.password && (
+              <p className='text-red-500 text-xs'>{errors.password.message}</p>
+            )}
+            <button type='button' className={`${seePassword ? 'text-gray-500' : 'text-gray-300'} absolute right-2 bottom-[6px]`} onClick={() => setSeePassword((prev) => !prev)}>
+              <Visibility/>
+            </button>
+          </div>
+
+          <div className='grid gap-2 relative'>
+            <Label htmlFor='repeatPassword'>Confirm Password</Label>
+            <Input {...register('repeatPassword', {
+      required: 'Please confirm your password',
+      validate: (value) =>
+        value === watchPassword || 'Passwords do not match'
+    })} type={seeRepeat ? 'text' : 'password'} id='repeatPassword' name='repeatPassword'/>
+            {errors.repeatPassword && (
+              <p className='text-red-500 text-xs'>{errors.repeatPassword.message}</p>
+            )}
+            <button type='button' className={`${seeRepeat ? 'text-gray-500' : 'text-gray-300'} absolute right-2 bottom-[6px]`} onClick={() => setSeeRepeat((prev) => !prev)}>
+              <Visibility/>
+            </button>
+          </div>
+
+        </div>
+        <button className='justify-self-center bg-[var(--secondary)] py-2 px-4 rounded-lg w-fit'>Sign Up</button>
+      </form>
+      <p className='text-white text-center'>Already have an account? <a href='/login' className='font-bold underline'>Log in here</a></p>
+      </div>
+    </div>
+  )
+}
+
+export default RegisterPage

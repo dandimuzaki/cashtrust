@@ -1,0 +1,28 @@
+{
+  "name": "cashtrust",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "module-alias": "^2.2.3"
+  },
+  "_moduleAliases": {
+    "@db": "./server/db",
+    "@models": "./server/models",
+    "@controllers": "./server/controllers",
+    "@middlewares": "./server/middlewares",
+    "@routes": "./server/routes",
+    "@utils": "./server/utils",
+    "@assets": "./client/src/assets",
+    "@components": "./client/src/components",
+    "@hooks": "./client/src/hooks",
+    "@pages": "./client/src/pages",
+    "@services": "./client/src/services"
+  }
+}
