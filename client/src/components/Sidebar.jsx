@@ -51,13 +51,13 @@ const Sidebar = () => {
         Logout
       </div>
     </div>
-    <div className='md:hidden flex justify-around z-150 fixed bottom-0 w-screen h-16 shadow-[2px_0px_5px_5px_rgba(0,0,0,0.1)] bg-white'>
+    <div className='text-xs md:hidden grid grid-cols-4 px-4 text-center z-150 fixed bottom-0 w-screen h-16 shadow-[2px_0px_5px_5px_rgba(0,0,0,0.1)] bg-white'>
       <NavLink 
         to='/dashboard'
         className={({ isActive }) => `${isActive 
           ? 'text-[var(--primary)]' 
           : 'text-gray-400'} 
-          px-5 py-2 grid text-sm`
+          p-2 grid`
       }>
         <div className='flex justify-center'><BarChart/></div>
         Dashboard
@@ -67,7 +67,7 @@ const Sidebar = () => {
         className={({ isActive }) => `${isActive 
           ? 'text-[var(--primary)]' 
           : 'text-gray-400'} 
-          px-5 py-2 grid text-sm`
+          p-2 grid`
       }>
         <div className='flex justify-center'><Receipt/></div>
         Transactions
@@ -77,27 +77,17 @@ const Sidebar = () => {
         className={({ isActive }) => `${isActive 
           ? 'text-[var(--primary)]' 
           : 'text-gray-400'} 
-          px-5 py-2 grid text-sm`
+          p-2 grid`
       }>
         <div className='flex justify-center'><Person/></div>
         Profile
-      </NavLink>
-      <NavLink 
-        to='/categories'
-        className={({ isActive }) => `${isActive 
-          ? 'text-[var(--primary)]' 
-          : 'text-gray-400'} 
-          px-5 py-2 grid text-sm`
-      }>
-        <div className='flex justify-center'><Category/></div>
-        Categories
       </NavLink>
       <NavLink 
         to='/settings'
         className={({ isActive }) => `${isActive 
           ? 'text-[var(--primary)]' 
           : 'text-gray-400'} 
-          px-5 py-2 grid text-sm`
+          p-2 grid`
       }>
         <div className='flex justify-center'><Settings/></div>
         Settings

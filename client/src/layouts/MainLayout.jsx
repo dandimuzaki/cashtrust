@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <>
       <Sidebar />
-      <div className='md:ml-50 md:px-12 px-4 bg-[var(--background)] pb-20 w-screen overflow-hidden'>
+      <div className='md:ml-50 md:px-12 px-4 bg-[var(--background)] pb-20'>
       <Outlet />
       </div>
     </>

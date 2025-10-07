@@ -11,8 +11,13 @@ const SettingsPage = () => {
   return (
     <div>
       <PageTitle title="Settings" />
-      <div className='grid grid-cols-2 gap-4 max-w-xl items-stretch'>
-  <h2 className='text-xl col-span-2'>Custom Categories</h2>
+      <div className='grid md:grid-cols-2 gap-4 max-w-xl items-stretch'>
+  <h2 className='text-xl md:col-span-2'>Custom Categories</h2>
+  <div 
+  onClick={() => openCategoryModal()}
+  className='text-white flex items-center gap-2 md:col-span-2 w-fit h-fit pl-2 pr-4 py-2 rounded bg-blue-500'>
+            <Add/>Add Category
+          </div>
   {/* Income Column */}
   <div className='flex flex-col gap-2 h-full'>
     <h3 className='text-lg'>Income</h3>
@@ -58,11 +63,6 @@ const SettingsPage = () => {
         ))}
     </div>
   </div>
-  <div 
-  onClick={() => openCategoryModal()}
-  className='flex items-center gap-2 col-span-2 w-fit h-fit pl-2 pr-4 py-2 rounded bg-blue-500'>
-            <Add/>Add Category
-          </div>
 </div>
 <CategoryModal/>
     </div>
