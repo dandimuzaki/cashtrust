@@ -260,7 +260,7 @@ const Dashboard = () => {
               analytics={analytics} 
             />
           )}
-          <div className='h-fit grid gap-2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-lg p-4'>
+          <div className='h-fit hidden md:grid gap-2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-lg p-4'>
             <h2 className='font-bold text-xl'>Current Transactions</h2>
             {<MemoizedTransactionMiniTable transactions={transactions.slice(0,6)}/>}
           </div>
