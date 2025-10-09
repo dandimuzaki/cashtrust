@@ -65,7 +65,7 @@ const TransactionTable = () => {
   })
 
   return (
-    <table className='w-full'>
+    <table className='hidden md:block w-full'>
       <thead className='sticky top-22'>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>

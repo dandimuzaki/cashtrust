@@ -236,13 +236,13 @@ const Dashboard = () => {
         <div className='grid md:grid-cols-[3fr_2fr] gap-4'>
           <div className='grid gap-2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-lg p-4'>
             <h2 className='text-center font-bold text-xl'>Monthly Transactions</h2>
-            <div className='w-full h-60 text-sm'>
+            <div className='h-60 text-sm'>
               {loading ? '' : <MemoizedMonthlyBar monthlyData={monthlyData} loading={loading} />}
             </div>
           </div>
           <div className='grid gap-2 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-lg p-4'>
             <h2 className='text-center font-bold text-xl'>Expense by Category</h2>
-            <div className='w-full h-60 text-sm'>
+            <div className='h-60 text-sm'>
               {loading ? '' : <MemoizedCategoryPie categoryData={categoryData} loading={loading} />}
             </div>
           </div>

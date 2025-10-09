@@ -10,7 +10,7 @@ const Analytics = React.memo(({loading, current, compare, periodOption, handleCu
     <>
     {(<div className='grid gap-4 bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-lg p-4'>
       <h2 className='text-center font-bold text-xl'>Analytics</h2>
-      <div className='md:flex grid gap-2 w-full justify-center items-center'>
+      <div className='md:flex grid gap-2 w-full justify-center items-center text-center'>
       <div className='rounded pr-2 bg-gray-300'>
         <select
           value={current}
